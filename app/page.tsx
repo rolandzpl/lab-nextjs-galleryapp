@@ -1,5 +1,5 @@
 'use client'
-import { IconButton, ImageList, ImageListItem, ImageListItemBar } from "@mui/material";
+import { IconButton, ImageList, ImageListItem, ImageListItemBar, Rating } from "@mui/material";
 import Image from "next/image";
 import InfoIcon from '@mui/icons-material/Info';
 import { images } from "./images";
@@ -16,7 +16,10 @@ export default function Page() {
                         height={item.height}
                     />
                     <ImageListItemBar
-                        title={item.caption}
+                        title={(<>
+                            <Rating name="half-rating" max={3} defaultValue={0} precision={1} />
+                            <span>{item.caption}</span>
+                        </>)}
                         subtitle={item.author}
                         actionIcon={
                             <IconButton
